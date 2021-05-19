@@ -1,6 +1,6 @@
 import { Component, h } from '@stencil/core';
-import { Client } from 'boardgame.io/client';
-import { TicTacToe } from '../../../game/game';
+import {TicTacToeClient} from './ttt.js'
+
 
 @Component({
   tag: 'app-home',
@@ -11,9 +11,8 @@ export class AppHome {
   client: any
 
   connectedCallback() {
-    this.client = Client({ game: TicTacToe });
-    this.client.start();
-    console.log("düdüdü")
+      new TicTacToeClient({playerID: 'user'+Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)})
+      new TicTacToeClient({playerID: 'user'+Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)})
   }
 
   render() {
